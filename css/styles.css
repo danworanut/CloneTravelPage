@@ -5,6 +5,7 @@
     font-size: 100%;
     vertical-align: baseline;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 .container {
@@ -42,7 +43,28 @@ nav {
     text-decoration: none;
     color: white;
     font-weight: normal;
+    position: relative;
+    
 }
+
+.menu li a:hover{
+    
+    color: #ebe8e8;
+    
+}
+
+.menu li a.active:after{ 
+    height: 0.15rem;
+    width: 1.25rem;
+    top: -0.3rem;
+    left: 0;
+    content: '';
+    position: absolute;
+    background-color: #fff;
+}
+
+
+
 
 /* logo style */
 
