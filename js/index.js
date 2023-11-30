@@ -33,3 +33,32 @@ function stickyHeader() {
     header.classList.remove("sticky");
   }
 }
+
+// slide show
+
+let slideInx = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides")
+  let dots = document.getElementsByClassName("dot")
+  for( i = 0; i < slides.length; i++ ) {
+    slides[i].style.display = "none";  
+  }
+  slideInx++;
+
+  if(slideInx > slides.length) {
+    slideInx = 1
+  }
+
+  for (i = 0; i < dots.length ; i++ ){
+    dots[i].className = dots[i].className.replace(" show", "")
+  }
+
+  slides[slideInx-1].style.display = "block";  
+  dots[slideInx-1].className += " show";
+  setTimeout(showSlides, 2000);
+
+
+}
