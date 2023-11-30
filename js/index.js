@@ -1,8 +1,5 @@
 // Active navbar link
 
-var menu = document.getElementsByClassName("menu");
-
-
 var listMenus = document.getElementsByClassName("menu-list")
 
 for (let i = 0; i < listMenus.length; i++) 
@@ -19,5 +16,20 @@ for (let i = 0; i < listMenus.length; i++)
 
         this.className += " active";
     })
-    
+     
+}
+
+// sticky header 
+
+window.onscroll = function() {stickyHeader()};
+
+var header = document.querySelector("header")
+var sticky = header.offsetTop;
+
+function stickyHeader() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
 }
