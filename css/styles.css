@@ -128,17 +128,21 @@ nav {
 }
 
 .dot {
+    cursor: pointer;
     height: 0.125rem;
     width: 13%;
     margin: 0 16px;
     background-color: #bbb;
     display: inline-block;
     transition: background-color 0.6s ease;
+    cursor: pointer;
 }
 
-.show {
+
+.show, .dot:hover {
     background-color: #717171;
-}
+  }
+  
 
 footer {
     height: 200px;
