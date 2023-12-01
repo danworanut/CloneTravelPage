@@ -36,29 +36,42 @@ function stickyHeader() {
 
 // slide show
 
-let slideInx = 0;
+let slideIndex = 1;  
+let manualClick = false;
+
 showSlides();
 
 function showSlides() {
   let i;
-  let slides = document.getElementsByClassName("mySlides")
-  let dots = document.getElementsByClassName("dot")
-  for( i = 0; i < slides.length; i++ ) {
-    slides[i].style.display = "none";  
-  }
-  slideInx++;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
 
-  if(slideInx > slides.length) {
-    slideInx = 1
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
   }
 
-  for (i = 0; i < dots.length ; i++ ){
-    dots[i].className = dots[i].className.replace(" show", "")
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
   }
 
-  slides[slideInx-1].style.display = "block";  
-  dots[slideInx-1].className += " show";
-  setTimeout(showSlides, 2000);
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" show", "");
+  }
 
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " show";
 
+  if (!manualClick) {
+    setTimeout(showSlides, 2000);
+    slideIndex++;
+  }
+}
+
+function currentSlide(n) {
+  slideIndex = n;
+  manualClick = true;
+  showSlides();
+  setTimeout(() => {
+    manualClick = false;
+  }, 2000);
 }
